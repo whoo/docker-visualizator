@@ -19,14 +19,18 @@ def GetImageTree(cli):
     nodesArray=[]
     for v,a in enumerate(cli.images(all=True)):
         group=0;
+        name="<none>:<none>"
         try:
-            if (a['ParentId']==""):
-                group=4;
-            if (a['RepoTags'][0]):
-                group=2;
-            nodesArray.append( {'id':v, 'label':a['RepoTags'][0], 'group': group} )
+            name=a['RepoTags'][0]
         except:
-            pass
+            name="<none>:<none>"
+
+        if (a['ParentId']==""):
+            group=4;
+
+        if (name=="<none>:<none>"):
+            group=2;
+        nodesArray.append( {'id':v, 'label':name, 'group': group} )
 
     data={'nodes':nodesArray,'edges':edgesArray}
     return json.dumps(data)
