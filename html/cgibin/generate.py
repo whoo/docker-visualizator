@@ -39,4 +39,4 @@ def GetInfo(cli):
 if (__name__=="__main__"):
     print("Content-type: application/json")
     print("");
-    print(GetImageTree(cli))
+    print(GetInfo(cli))

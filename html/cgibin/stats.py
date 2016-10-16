@@ -18,8 +18,7 @@ def GetInfo(cli):
     return json.dumps(data)
 
 
-
-
-print("Content-type: application/json")
-print("");
-print (GetInfo(cli))
+if (__name__=="__main__"):
+    print("Content-type: application/json")
+    print("");
+    print (GetInfo(cli))
